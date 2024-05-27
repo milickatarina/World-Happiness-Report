@@ -43,4 +43,8 @@ The World Happiness Report is a landmark survey of the state of global happiness
 Data limitations: Happiness is a feeling and subjective measure and it’s very challenging to express it in numbers or scale it. Every individual is different and different things bring us joy and happiness. Also, people in different parts of the world have different mentalities, way of life, culture and religion and happiness on that national level differs much. 
 The last dataset is from 2019. Since then, the world has changed, especially since Covid-19. I believe that people have different perspectives of happiness in general.
 
+## Retrospective
+
+I chose this dataset because it seems very interesting, and it looks like something I would enjoy analyzing and learning about.
+This analysis can be relevant not only in political, economical and sociological  field, but also in psychology, psychiatry, or medicine and the results could be used to improve people's lives around the world.
 
