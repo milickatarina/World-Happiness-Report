@@ -33,6 +33,73 @@ sns.lmplot(x = 'Freedom', y = 'Happiness Score', data = df)
 #### Create a scatterplot for the "GDP per Capita" and "Life Expectancy" columns in seaborn
 sns.lmplot(x = 'GDP per Capita', y = 'Life Expectancy', data = df)
 
+#### Geographical Visualizations
+
+# Setup a folium map at a high-level zoom
+
+map = folium.Map(location = [100, 0], zoom_start = 1.5)
+
+folium.Choropleth(
+    geo_data = world_map_geo, 
+    data = data_to_plot,
+    columns = ['Country', 'Happiness Score'],
+    key_on = 'feature.properties.name', 
+    fill_color = 'YlOrBr', fill_opacity=0.6, line_opacity=0.1,
+    legend_name = "rating").add_to(map)
+folium.LayerControl().add_to(map)
+
+map
+
+# Setup a folium map at a high-level zoom
+
+map = folium.Map(location = [100, 0], zoom_start = 1.5)
+
+folium.Choropleth(
+    geo_data = world_map_geo, 
+    data = data_to_plot_2,
+    columns = ['Country','Perceptions of Goverment Corruption'],
+    key_on = 'feature.properties.name', 
+    fill_color = 'YlOrBr', fill_opacity=0.6, line_opacity=0.1,
+    legend_name = "rating").add_to(map)
+folium.LayerControl().add_to(map)
+
+map
+
+#### Regression Analysis
+
+#Create a plot that shows the regression line from the model on the test set.
+
+plot_test = plt
+plot_test.scatter(X_test, y_test, color='gray', s = 15)
+plot_test.plot(X_test, y_predicted, color='red', linewidth =3)
+plot_test.title('Freedom vs Happiness Score (Test set)')
+plot_test.xlabel('Freedom')
+plot_test.ylabel('Happiness Score')
+plot_test.show()
+
+#### Cluster Analysis
+
+#Plot the clusters for the "Happiness Score" and "Freedom" variables.
+
+plt.figure(figsize=(12,8))
+ax = sns.scatterplot(x=df_2['Happiness Score'], y=df_2['Freedom'], hue=kmeans.labels_, s=100) 
+
+
+ax.grid(False) 
+plt.xlabel('Happiness Score') 
+plt.ylabel('Freedom') 
+plt.show()
+
+#Plot the clusters for the "Happiness Score" and "GDP per Capita" variables.
+
+plt.figure(figsize=(12,8))
+ax = sns.scatterplot(x=df_2['Happiness Score'], y=df_2['GDP per Capita'], hue=kmeans.labels_, s=100) 
+
+
+ax.grid(False) 
+plt.xlabel('Happiness Score') 
+plt.ylabel('GDP per Capita') 
+plt.show()
 
 
 
