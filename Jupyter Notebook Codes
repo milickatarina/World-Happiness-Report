@@ -1,0 +1,38 @@
+
+### Creating a Correlation Matrix Heatmap
+
+####Create a subsection without "country" column to create matrix heatmap
+df1 = df[['Happiness Rank', 'Happiness Score', 'GDP per Capita', 'Family', 'Life Expectancy', 'Freedom',  'Perceptions of Goverment Corruption', 'Generosity']]
+
+####Create a correlation matrix using pandas
+df1.corr()
+
+#### Create a correlation heatmap using matplotlib
+plt.matshow(df1.corr())
+plt.show()
+
+#### Add labels, a legend, and change the size of the heatmap
+
+f = plt.figure(figsize=(8, 8)) # figure size 
+plt.matshow(df1.corr(), fignum=f.number) # type of plot
+plt.xticks(range(df1.shape[1]), df1.columns, fontsize=14, rotation=45) # x axis labels
+plt.yticks(range(df1.shape[1]), df1.columns, fontsize=14) # y axis labels
+cb = plt.colorbar() # add a colour legend 
+cb.ax.tick_params(labelsize=14) # add font size
+plt.title('Correlation Matrix', fontsize=14) # add title
+
+#### Create the correlation heatmap in seaborn
+f,ax = plt.subplots(figsize=(10,10))
+corr = sns.heatmap(df1.corr(), annot = True, ax = ax) 
+
+### Creating a Scatterplot
+
+#### Create a scatterplot for the "freedom" and "Happiness Score" columns in seaborn
+sns.lmplot(x = 'Freedom', y = 'Happiness Score', data = df)
+
+#### Create a scatterplot for the "GDP per Capita" and "Life Expectancy" columns in seaborn
+sns.lmplot(x = 'GDP per Capita', y = 'Life Expectancy', data = df)
+
+
+
+
